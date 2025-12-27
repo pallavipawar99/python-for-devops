@@ -10,7 +10,7 @@ class LogAnalyzer:
         info_cnt = 0
         warn_cnt = 0
         try:
-            with open(self.filename,'r') as file:
+            with open(self.log_file,'r') as file:
                 for line in file:
                     if 'error' in line.lower():
                         error_cnt += 1
@@ -25,24 +25,24 @@ class LogAnalyzer:
         self.log_summary['INFO'] = info_cnt
         return self.log_summary
 
-    def write_data_to_file(data,filename):
+    def write_data_to_file(self,data,filename):
         try:
             with open(filename, "w") as f:
                 json.dump(data, f, indent=4)
-            return True 
+    
         except:
             print("Error Occured while writting data to file")
-            return False
+
         
 def main():
     analyzer = LogAnalyzer("app.log")
     data = analyzer.check_log()
     print(data)
-    result = analyzer.write_data_to_file(data,"log_summary.json")
+    analyzer.write_data_to_file(data,"log_summary.json")
 
-    print("Log Analysis Summary:")
-    for level, count in result.items():
-        print(f"{level}: {count}")
+    # print("Log Analysis Summary:")
+    # for level, count in result.items():
+    #     print(f"{level}: {count}")
 
 
 if __name__ == "__main__":
