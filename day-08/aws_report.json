@@ -1,0 +1,12 @@
+[
+    {
+        "Name": "amzn-devops-sachin",
+        "CreationDate": "2025-12-30 13:32:15+00:00",
+        "BucketArn": "arn:aws:s3:::amzn-devops-sachin"
+    },
+    {
+        "Name": "amzn-devops-sachin2",
+        "CreationDate": "2025-12-30 13:32:29+00:00",
+        "BucketArn": "arn:aws:s3:::amzn-devops-sachin2"
+    }
+]
